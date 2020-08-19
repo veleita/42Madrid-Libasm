@@ -11,7 +11,7 @@ _ft_write:
 error:
 	neg		rax
 	mov		rdx, rax
-	call	__error
+	call	___error
 	mov		[rax], rdx
 	mov		rax, -1
 	ret
