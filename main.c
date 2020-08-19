@@ -6,7 +6,7 @@
 /*   By: mzomeno- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:34:17 by mzomeno-          #+#    #+#             */
-/*   Updated: 2020/08/19 17:00:41 by mzomeno-         ###   ########.fr       */
+/*   Updated: 2020/08/19 17:34:42 by mzomeno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
 #include "libasm.h"
 
 int	main()

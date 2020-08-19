@@ -1,5 +1,5 @@
 extern	_ft_strlen
-extern	malloc
+extern	_malloc
 extern	_ft_strcpy
 
 global	_ft_strdup
@@ -9,7 +9,7 @@ _ft_strdup:
 	inc		rax				;	Length +1 to store the \0 char
 	push	rdi				;	Save the first argument in stack
 	mov		rdi, rax		;	Passed the length in rax to the 1st argument register (rdi)
-	call	malloc			;	Call malloc with the length of the string as argument
+	call	_malloc			;	Call malloc with the length of the string as argument
 	cmp		rax, 0
 	jle		error			;	If malloc fails (rax == 0) return 0
 	pop		rdi				;	Restore previous value of rdi (string)
