@@ -6,7 +6,7 @@
 /*   By: mzomeno- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:34:17 by mzomeno-          #+#    #+#             */
-/*   Updated: 2020/08/19 17:38:57 by mzomeno-         ###   ########.fr       */
+/*   Updated: 2020/08/19 18:20:17 by mzomeno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,12 @@ int	main()
 	printf("\n\n");
 
 	printf("STRDUP:\n");
-	printf("Mine: %s\n", ft_strdup(string));
-	printf("Real: %s\n\n", strdup(string));
+	char	*str = ft_strdup(string);
+	printf("Mine: %s\n", str);
+	free(str);
+	str = strdup(string);
+	printf("Real: %s\n\n", str);
+	free(str);
 
 	printf("READ:\n");
 	printf("Please, write something\n");
