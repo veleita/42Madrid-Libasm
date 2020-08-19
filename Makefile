@@ -6,7 +6,7 @@
 #    By: mzomeno- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/16 15:15:13 by mzomeno-          #+#    #+#              #
-#    Updated: 2020/08/19 16:53:28 by mzomeno-         ###   ########.fr        #
+#    Updated: 2020/08/19 17:29:38 by mzomeno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,17 @@ NAME		= 	libasm.a
 CC			= 	nasm
 OS			=	$(shell uname)
 ifeq ($(OS), Linux)
-	FLAGS	= 	-f elf64
+	FLAGS		= 	-f elf64
+	INCLUDES	=	
+	SRC_DIR		=	src_linux/
 endif
 ifeq ($(OS), Darwin)
-	FLAGS	= 	-f macho64
+	FLAGS		= 	-f macho64
+	INCLUDES	=	-I./ -L./ -lasm
+	SRC_DIR		=	src_mac/
 endif
+
+OBJ_DIR		=	obj/
 
 SRC_FILES	= 	ft_strlen.s \
 				ft_read.s \
@@ -29,9 +35,6 @@ SRC_FILES	= 	ft_strlen.s \
 				ft_strdup.s
 
 OBJ_FILES	=	$(SRC_FILES:.s=.o)
-
-SRC_DIR		=	src/
-OBJ_DIR		=	obj/
 
 SRC			=	$(addprefix $(SRC_DIR), $(SRC_FILES))
 OBJ			=	$(addprefix $(OBJ_DIR), $(OBJ_FILES))
@@ -56,5 +59,5 @@ fclean: clean
 re: fclean all
 
 test: all
-		@gcc -Libs -lasm main.c $(NAME) && ./a.out
+		@gcc $(INCLUDES) main.c $(NAME) && ./a.out
 		@rm a.out

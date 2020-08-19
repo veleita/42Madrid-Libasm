@@ -6,7 +6,7 @@
 /*   By: mzomeno- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:34:17 by mzomeno-          #+#    #+#             */
-/*   Updated: 2020/08/19 16:38:29 by mzomeno-         ###   ########.fr       */
+/*   Updated: 2020/08/19 17:00:41 by mzomeno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	main()
 	char	*buf = (char*)malloc(20 * sizeof(char));
 
 	printf("STRLEN:\n");
-	printf("Mine: %d\n", ft_strlen(string));
-	printf("Real: %d\n\n", strlen(string));
+	printf("Mine: %lu\n", ft_strlen(string));
+	printf("Real: %lu\n\n", strlen(string));
 
 	printf("STRCPY:\n");
 	printf("Mine: %s\n", ft_strcpy(buf, string));
@@ -49,9 +49,9 @@ int	main()
 
 	printf("READ:\n");
 	printf("Please, write something\n");
-	printf("Mine: %d\n", ft_read(fd, buf, 7));
+	printf("Mine: %zd\n", ft_read(fd, buf, 7));
 	printf("Now write the same thing\n");
-	printf("Real: %d\n\n", read(fd, buf, 7));
+	printf("Real: %zd\n\n", read(fd, buf, 7));
 	printf("\n----------------TEST COMPLETED----------------\n");
 	return (0);
 }
