@@ -6,14 +6,20 @@
 #    By: mzomeno- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/16 15:15:13 by mzomeno-          #+#    #+#              #
-#    Updated: 2020/08/19 13:18:36 by mzomeno-         ###   ########.fr        #
+#    Updated: 2020/08/19 16:53:28 by mzomeno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= 	libasm.a
 
 CC			= 	nasm
-FLAGS		= 	-f elf64
+OS			=	$(shell uname)
+ifeq ($(OS), Linux)
+	FLAGS	= 	-f elf64
+endif
+ifeq ($(OS), Darwin)
+	FLAGS	= 	-f macho64
+endif
 
 SRC_FILES	= 	ft_strlen.s \
 				ft_read.s \
@@ -50,5 +56,5 @@ fclean: clean
 re: fclean all
 
 test: all
-		@gcc main.c $(NAME) && ./a.out
+		@gcc -Libs -lasm main.c $(NAME) && ./a.out
 		@rm a.out
