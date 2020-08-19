@@ -6,7 +6,7 @@
 #    By: mzomeno- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/16 15:15:13 by mzomeno-          #+#    #+#              #
-#    Updated: 2020/08/19 17:29:38 by mzomeno-         ###   ########.fr        #
+#    Updated: 2020/08/19 18:38:16 by mzomeno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,5 +59,5 @@ fclean: clean
 re: fclean all
 
 test: all
-		@gcc $(INCLUDES) main.c $(NAME) && ./a.out
+		@gcc -no-pie $(INCLUDES) main.c $(NAME) && ./a.out
 		@rm a.out
