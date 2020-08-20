@@ -6,7 +6,7 @@
 #    By: mzomeno- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/08/16 15:15:13 by mzomeno-          #+#    #+#              #
-#    Updated: 2020/08/19 18:38:16 by mzomeno-         ###   ########.fr        #
+#    Updated: 2020/08/20 11:44:31 by mzomeno-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,12 @@ CC			= 	nasm
 OS			=	$(shell uname)
 ifeq ($(OS), Linux)
 	FLAGS		= 	-f elf64
-	INCLUDES	=	
+	PATCH		=	-no-pie
 	SRC_DIR		=	src_linux/
 endif
 ifeq ($(OS), Darwin)
 	FLAGS		= 	-f macho64
-	INCLUDES	=	-I./ -L./ -lasm
+	PATCH		=	-I./ -L./ -lasm
 	SRC_DIR		=	src_mac/
 endif
 
@@ -59,5 +59,5 @@ fclean: clean
 re: fclean all
 
 test: all
-		@gcc -no-pie $(INCLUDES) main.c $(NAME) && ./a.out
+		@gcc $(PATCH) main.c $(NAME) && ./a.out
 		@rm a.out

@@ -6,7 +6,7 @@
 /*   By: mzomeno- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:34:17 by mzomeno-          #+#    #+#             */
-/*   Updated: 2020/08/19 18:20:17 by mzomeno-         ###   ########.fr       */
+/*   Updated: 2020/08/20 11:44:53 by mzomeno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <fcntl.h>
 #include "libasm.h"
 
 int	main()
 {
 	char	*string = "todo bien hasta que";
 	char	*string2 = "todo bien hasta que ups";
-	int		fd = 0;
+	int		fd = open("test", O_RDONLY);
 	char	*buf = (char*)malloc(20 * sizeof(char));
 
 	printf("STRLEN:\n");
