@@ -6,7 +6,7 @@
 /*   By: mzomeno- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/13 16:34:17 by mzomeno-          #+#    #+#             */
-/*   Updated: 2020/08/20 11:44:53 by mzomeno-         ###   ########.fr       */
+/*   Updated: 2020/08/22 17:00:09 by mzomeno-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int	main()
 	free(str);
 
 	printf("READ:\n");
-	printf("Please, write something\n");
+	printf("Reading test file...\n");
 	printf("Mine: %d\n", ft_read(fd, buf, 7));
-	printf("Now write the same thing\n");
+	printf("Reading test file...\n");
 	printf("Real: %zd\n\n", read(fd, buf, 7));
 	printf("\n----------------TEST COMPLETED----------------\n");
 	return (0);
